@@ -11,11 +11,14 @@ namespace Tyuiu.AshirovaDA.Sprint5.Task0.V20.Test
         public void CheckedExistsFile()
         {
             DataService ds = new DataService();
-            string path = ds.SaveToFileTextData(2); // Вызываем метод, он создаст файл
+            // Метод создаст файл во временной папке и вернет путь
+            string path = ds.SaveToFileTextData(2);
 
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
             bool wait = true;
+
+            // Проверяем, что файл создался
             Assert.AreEqual(wait, fileExists);
         }
     }

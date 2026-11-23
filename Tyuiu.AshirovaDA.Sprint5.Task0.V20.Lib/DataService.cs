@@ -1,4 +1,5 @@
-﻿using System.IO; // Обязательно для работы с файлами
+﻿using System;
+using System.IO;
 using System.Globalization;
 using tyuiu.cources.programming.interfaces.Sprint5;
 
@@ -8,20 +9,22 @@ namespace Tyuiu.AshirovaDA.Sprint5.Task0.V20.Lib
     {
         public string SaveToFileTextData(int x)
         {
-            // 1. Создаем путь (как в примере)
-            string path = $@"{Directory.GetCurrentDirectory()}\OutPutFileTask0.txt";
+            // ИСПОЛЬЗУЕМ Path.GetTempPath() КАК ТРЕБУЕТСЯ В ЗАДАНИИ
+            string tempPath = Path.GetTempPath();
+            string fileName = "OutPutFileTask0.txt";
+            string path = Path.Combine(tempPath, fileName);
 
-            // 2. Вычисляем вашу формулу
+            // Вычисляем вашу формулу
             double result = 2.12 * Math.Pow(x, 3) + 1.05 * Math.Pow(x, 2) + 4.1 * x * 2;
 
-            // 3. Округляем до 3-х знаков
+            // Округляем до 3-х знаков и форматируем
             double roundedResult = Math.Round(result, 3);
+            string formattedResult = roundedResult.ToString("F3", CultureInfo.InvariantCulture);
 
-            // 4. Записываем в файл. 
-            // Используем InvariantCulture, чтобы точка была разделителем, а не запятая
-            File.WriteAllText(path, roundedResult.ToString(CultureInfo.InvariantCulture));
+            // Записываем в файл (теперь в безопасную временную папку)
+            File.WriteAllText(path, formattedResult);
 
-            // 5. Возвращаем путь
+            // Возвращаем путь
             return path;
         }
     }
