@@ -19,7 +19,7 @@ namespace Tyuiu.AshirovaDA.Sprint5.Task0.V20.Lib
 
             // Округляем до 3-х знаков и форматируем
             double roundedResult = Math.Round(result, 3);
-            string formattedResult = roundedResult.ToString("F3", CultureInfo.InvariantCulture);
+            string formattedResult = roundedResult.ToString();
 
             // Записываем в файл (теперь в безопасную временную папку)
             File.WriteAllText(path, formattedResult);
