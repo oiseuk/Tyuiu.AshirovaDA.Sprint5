@@ -8,7 +8,8 @@ namespace Tyuiu.AshirovaDA.Sprint5.Task7.V12.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string pathSaveFile = $@"{Directory.GetCurrentDirectory()}\OutPutDataFileTask7V12.txt";
+            string tempPath = Path.GetTempPath();
+            string pathSaveFile = Path.Combine(tempPath, "OutPutDataFileTask7V12.txt");
 
             FileInfo fileInfo = new FileInfo(pathSaveFile);
             bool fileExists = fileInfo.Exists;
@@ -28,7 +29,7 @@ namespace Tyuiu.AshirovaDA.Sprint5.Task7.V12.Lib
                     for (int i = 0; i < line.Length; i++)
                     {
                         char c = line[i];
-                        // Ваша логика: если строчная русская буква — делаем заглавной
+
                         if (c >= 'а' && c <= 'я')
                         {
                             strLine = strLine + char.ToUpper(c);
