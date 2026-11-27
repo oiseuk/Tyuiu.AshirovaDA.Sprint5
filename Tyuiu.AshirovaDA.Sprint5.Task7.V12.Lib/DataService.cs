@@ -28,7 +28,7 @@ namespace Tyuiu.AshirovaDA.Sprint5.Task7.V12.Lib
                     for (int i = 0; i < line.Length; i++)
                     {
                         char c = line[i];
-
+                        // Ваша логика: если строчная русская буква — делаем заглавной
                         if (c >= 'а' && c <= 'я')
                         {
                             strLine = strLine + char.ToUpper(c);

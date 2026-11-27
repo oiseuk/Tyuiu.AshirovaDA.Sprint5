@@ -15,7 +15,6 @@ namespace Tyuiu.AshirovaDA.Sprint5.Task7.V12
             Console.WriteLine("***************************************************************************");
 
             string path = $@"{Directory.GetCurrentDirectory()}\InPutDataFileTask7V12.txt";
-
             Console.WriteLine("Данные находятся в файле: " + path);
 
             Console.WriteLine("***************************************************************************");

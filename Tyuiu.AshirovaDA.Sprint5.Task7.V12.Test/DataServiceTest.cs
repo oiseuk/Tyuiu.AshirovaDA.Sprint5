@@ -1,8 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Diagnostics;
 using System.IO;
 using Tyuiu.AshirovaDA.Sprint5.Task7.V12.Lib;
-using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
 
 namespace Tyuiu.AshirovaDA.Sprint5.Task7.V12.Test
 {
@@ -12,7 +10,7 @@ namespace Tyuiu.AshirovaDA.Sprint5.Task7.V12.Test
         [TestMethod]
         public void CheckedExistsFile()
         {
-            string path = $@"C:\Users\Home\Desktop\Уник ТИУ\Tyuiu.AshirovaDA.Sprint5\Tyuiu.AshirovaDA.Sprint5.Task7.V12\bin\Debug\net8.0\InPutDataFileTask7V12.txt";
+            string path = @"C:\Users\Home\Desktop\Уник ТИУ\Tyuiu.AshirovaDA.Sprint5\Tyuiu.AshirovaDA.Sprint5.Task7.V12\bin\Debug\net8.0\InPutDataFileTask7V12.txt";
 
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
